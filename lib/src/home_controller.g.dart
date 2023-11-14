@@ -173,12 +173,12 @@ class _GreetingControllerProviderElement
 }
 
 String _$getArticlesControllerHash() =>
-    r'37e3871d824defd2a5ef1f46742c0f874354d49a';
+    r'29d32fd5e9ab58137ef58e7c16e3b04c259e674f';
 
 /// See also [GetArticlesController].
 @ProviderFor(GetArticlesController)
 final getArticlesControllerProvider =
-    AutoDisposeAsyncNotifierProvider<GetArticlesController, List?>.internal(
+    AsyncNotifierProvider<GetArticlesController, List?>.internal(
   GetArticlesController.new,
   name: r'getArticlesControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -188,14 +188,14 @@ final getArticlesControllerProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$GetArticlesController = AutoDisposeAsyncNotifier<List?>;
+typedef _$GetArticlesController = AsyncNotifier<List?>;
 String _$favouriteControllerHash() =>
-    r'90d95d473bdca518fb4faf1e0167e22b40c05d86';
+    r'cc6d32684e110b2ac6dbe267119639d10bfed840';
 
 /// See also [FavouriteController].
 @ProviderFor(FavouriteController)
 final favouriteControllerProvider =
-    AutoDisposeNotifierProvider<FavouriteController, List>.internal(
+    NotifierProvider<FavouriteController, List>.internal(
   FavouriteController.new,
   name: r'favouriteControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -205,6 +205,6 @@ final favouriteControllerProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$FavouriteController = AutoDisposeNotifier<List>;
+typedef _$FavouriteController = Notifier<List>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

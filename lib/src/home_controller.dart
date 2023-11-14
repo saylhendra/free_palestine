@@ -13,7 +13,7 @@ class GreetingController extends _$GreetingController {
   }
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class GetArticlesController extends _$GetArticlesController {
   @override
   FutureOr<List?> build() async {
@@ -27,7 +27,7 @@ class GetArticlesController extends _$GetArticlesController {
   }
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class FavouriteController extends _$FavouriteController {
   @override
   List build() {

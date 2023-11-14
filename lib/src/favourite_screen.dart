@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:free_palestine/src/atoms/appbar/appbar_image.dart';
 import 'package:free_palestine/src/atoms/icons/loved_icon_widget.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'home_controller.dart';
@@ -32,6 +33,18 @@ class FavouriteScreen extends HookConsumerWidget {
             ),
           );
         },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 1,
+        onTap: (index) {
+          if (index == 0) {
+            context.go('/');
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favourite'),
+        ],
       ),
     );
   }

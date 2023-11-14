@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:free_palestine/src/favourite_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import 'atoms/appbar/appbar_image.dart';
@@ -24,43 +25,54 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppbarImage(),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          doFetchData();
-        },
-        child: ListView.builder(
-            padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 10.0),
-            itemCount: _list.length,
-            itemBuilder: (context, index) {
-              var data = _list[index];
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Card(
-                  color: Colors.white,
-                  elevation: 4.0,
-                  child: Container(
+        appBar: const AppbarImage(),
+        body: RefreshIndicator(
+          onRefresh: () async {
+            doFetchData();
+          },
+          child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 10.0),
+              itemCount: _list.length,
+              itemBuilder: (context, index) {
+                var data = _list[index];
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Card(
                     color: Colors.white,
-                    child: ListTile(
-                      onTap: () {
-                        context.pushNamed('detail', extra: {'idNews': data['id'] ?? ''});
-                      },
-                      title: Column(
-                        children: [
-                          ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: data['urlToImage'] != null ? Image.network(data['urlToImage']) : const SizedBox.shrink()),
-                          Text(data['title'] ?? ''),
-                        ],
+                    elevation: 4.0,
+                    child: Container(
+                      color: Colors.white,
+                      child: ListTile(
+                        onTap: () {
+                          context.pushNamed('detail', extra: {'idNews': data['id'] ?? ''});
+                        },
+                        title: Column(
+                          children: [
+                            ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: data['urlToImage'] != null ? Image.network(data['urlToImage']) : const SizedBox.shrink()),
+                            Text(data['title'] ?? ''),
+                          ],
+                        ),
+                        subtitle: Text(data['description'] ?? ''),
                       ),
-                      subtitle: Text(data['description'] ?? ''),
                     ),
                   ),
-                ),
-              );
-            }),
-      ),
-    );
+                );
+              }),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0,
+          onTap: (index) {
+            if (index == 1) {
+              context.pushNamed(FavouriteScreen.routeName);
+            }
+          },
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favourite'),
+          ],
+        ));
   }
 
   void doFetchData() async {
