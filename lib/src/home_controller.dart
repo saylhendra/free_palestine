@@ -1,5 +1,5 @@
-import 'package:confetti/confetti.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'home_controller.g.dart';
@@ -38,14 +38,17 @@ class FavouriteController extends _$FavouriteController {
     ref.watch(getArticlesControllerProvider).whenData((value) {
       if (id != null && value != null) {
         var data = value.firstWhere((element) => element['title'] == id);
+        // state = [...state, data['title']];
         state = [...state, data['title']];
       }
     });
   }
 
   void removeFavourite({String? id}) {
+    debugPrint('$id');
     if (id != null) {
-      state = [...state.where((element) => element != id)];
+      // state = [...state.where((element) => element != id)];
+      state = state.where((element) => element != id).toList();
     }
   }
 }

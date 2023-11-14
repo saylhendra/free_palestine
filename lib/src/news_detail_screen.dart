@@ -40,8 +40,8 @@ class _NewsDetailScreenState extends ConsumerState<NewsDetailScreen> {
             data: (articles) {
               return RefreshIndicator(
                 onRefresh: () async {
-                  ref.invalidate(getArticlesControllerProvider);
-                  ref.invalidate(favouriteControllerProvider);
+                  // ref.invalidate(getArticlesControllerProvider);
+                  // ref.invalidate(favouriteControllerProvider);
                 },
                 child: Column(
                   children: [

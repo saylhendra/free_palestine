@@ -23,9 +23,11 @@ class FavouriteScreen extends HookConsumerWidget {
             title: Text(favourite),
             trailing: IconButton(
                 onPressed: () {
-                  ref.read(favouriteControllerProvider.notifier).removeFavourite(id: favourite);
+                  ref.read(favouriteControllerProvider.notifier).removeFavourite(id: favourite['title']);
                 },
-                icon: const LovedIconWidget()),
+                icon: LovedIconWidget(
+                  aidi: favourite,
+                )),
           );
         },
       ),

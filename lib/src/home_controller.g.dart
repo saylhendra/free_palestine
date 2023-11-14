@@ -190,7 +190,7 @@ final getArticlesControllerProvider =
 
 typedef _$GetArticlesController = AutoDisposeAsyncNotifier<List?>;
 String _$favouriteControllerHash() =>
-    r'fb57b6f3281873dd450f9b1c77293425a83aba9c';
+    r'90d95d473bdca518fb4faf1e0167e22b40c05d86';
 
 /// See also [FavouriteController].
 @ProviderFor(FavouriteController)
@@ -206,22 +206,5 @@ final favouriteControllerProvider =
 );
 
 typedef _$FavouriteController = AutoDisposeNotifier<List>;
-String _$myConfettiControllerHash() =>
-    r'2b8b87795eb9bb049efe36d4b17fd462136ba816';
-
-/// See also [MyConfettiController].
-@ProviderFor(MyConfettiController)
-final myConfettiControllerProvider = AutoDisposeNotifierProvider<
-    MyConfettiController, ConfettiController>.internal(
-  MyConfettiController.new,
-  name: r'myConfettiControllerProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$myConfettiControllerHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$MyConfettiController = AutoDisposeNotifier<ConfettiController>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
