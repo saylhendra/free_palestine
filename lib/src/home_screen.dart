@@ -34,20 +34,28 @@ class _HomeScreenState extends State<HomeScreen> {
             itemCount: _list.length,
             itemBuilder: (context, index) {
               var data = _list[index];
-              return Card(
-                child: ListTile(
-                  onTap: () {
-                    context.pushNamed('detail', extra: {'idNews': data['id']});
-                  },
-                  title: Column(
-                    children: [
-                      ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: data['urlToImage'] != null ? Image.network(data['urlToImage']) : const SizedBox.shrink()),
-                      Text(data['title']),
-                    ],
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Card(
+                  color: Colors.white,
+                  elevation: 4.0,
+                  child: Container(
+                    color: Colors.white,
+                    child: ListTile(
+                      onTap: () {
+                        context.pushNamed('detail', extra: {'idNews': data['id'] ?? ''});
+                      },
+                      title: Column(
+                        children: [
+                          ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: data['urlToImage'] != null ? Image.network(data['urlToImage']) : const SizedBox.shrink()),
+                          Text(data['title'] ?? ''),
+                        ],
+                      ),
+                      subtitle: Text(data['description'] ?? ''),
+                    ),
                   ),
-                  subtitle: Text(data['description']),
                 ),
               );
             }),

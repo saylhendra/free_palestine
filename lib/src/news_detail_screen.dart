@@ -66,24 +66,31 @@ class _NewsDetailScreenState extends ConsumerState<NewsDetailScreen> {
                         )),
                     Expanded(
                       child: ListView.builder(
+                        padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 10.0),
                         itemCount: articles?.length,
                         itemBuilder: (context, index) {
                           var statusFavourite = favouriteState.contains(
                             articles?[index]['title'],
                           );
-                          return Stack(
-                            alignment: Alignment.topRight,
-                            children: [
-                              ListTile(
-                                title: Text(articles?[index]['title']),
-                                subtitle: Text(articles?[index]['description']),
-                                onTap: () {},
-                              ),
-                              if (statusFavourite)
-                                LovedIconWidget(aidi: articles?[index]['title'])
-                              else
-                                UnlovedIconWidget(aidi: articles?[index]['title']),
-                            ],
+                          return Card(
+                            color: Colors.white,
+                            child: Stack(
+                              alignment: Alignment.topRight,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: ListTile(
+                                    title: Text(articles?[index]['title']),
+                                    subtitle: Text(articles?[index]['description'] ?? ''),
+                                    onTap: () {},
+                                  ),
+                                ),
+                                if (statusFavourite)
+                                  LovedIconWidget(aidi: articles?[index]['title'])
+                                else
+                                  UnlovedIconWidget(aidi: articles?[index]['title']),
+                              ],
+                            ),
                           );
                         },
                       ),

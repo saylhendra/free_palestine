@@ -19,15 +19,17 @@ class FavouriteScreen extends HookConsumerWidget {
         itemCount: favouriteState.length,
         itemBuilder: (context, index) {
           var favourite = favouriteState[index];
-          return ListTile(
-            title: Text(favourite),
-            trailing: IconButton(
-                onPressed: () {
-                  ref.read(favouriteControllerProvider.notifier).removeFavourite(id: favourite['title']);
-                },
-                icon: LovedIconWidget(
-                  aidi: favourite,
-                )),
+          return Card(
+            child: ListTile(
+              title: Text(favourite),
+              trailing: IconButton(
+                  onPressed: () {
+                    ref.read(favouriteControllerProvider.notifier).removeFavourite(id: favourite['title']);
+                  },
+                  icon: LovedIconWidget(
+                    aidi: favourite,
+                  )),
+            ),
           );
         },
       ),
