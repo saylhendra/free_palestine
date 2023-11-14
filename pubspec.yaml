@@ -9,13 +9,15 @@ environment:
   sdk: ">=3.1.3 <4.0.0"
 
 dependencies:
+  confetti: ^0.7.0
   cupertino_icons: ^1.0.2
   dio: ^5.3.3
   flutter:
     sdk: flutter
-  go_router: ^12.1.0
   flutter_riverpod: ^2.3.1
   flutter_screenutil: ^5.7.0
+  gap: ^3.0.1
+  go_router: ^12.1.0
   hooks_riverpod: ^2.3.10
   internet_connection_checker: ^1.0.0+1
   riverpod_annotation: ^2.0.1

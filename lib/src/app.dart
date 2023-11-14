@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free_palestine/src/favourite_screen.dart';
 import 'package:free_palestine/src/news_detail_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,7 +23,6 @@ class MyApp extends StatelessWidget {
         ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.white,
-          primary: Colors.red,
         ),
         useMaterial3: true,
       ),
@@ -46,6 +46,12 @@ final _router = GoRouter(
           idNews: exstra?['idNews'] ?? '0',
         );
       },
+    ),
+    //favoutite screen
+    GoRoute(
+      path: '/favourite',
+      name: FavouriteScreen.routeName,
+      builder: (context, state) => const FavouriteScreen(),
     ),
   ],
 );

@@ -5,6 +5,7 @@ class AppbarImage extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('AppbarImage build');
     return AppBar(
       title: const Text('🇵🇸 Free Palestine 🇵🇸'),
       backgroundColor: Colors.black,

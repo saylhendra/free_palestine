@@ -1,3 +1,4 @@
+import 'package:confetti/confetti.dart';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -22,6 +23,29 @@ class GetArticlesController extends _$GetArticlesController {
       return response.data['articles'];
     } else {
       return null;
+    }
+  }
+}
+
+@riverpod
+class FavouriteController extends _$FavouriteController {
+  @override
+  List build() {
+    return [];
+  }
+
+  void addFavourite({required String? id}) {
+    ref.watch(getArticlesControllerProvider).whenData((value) {
+      if (id != null && value != null) {
+        var data = value.firstWhere((element) => element['title'] == id);
+        state = [...state, data['title']];
+      }
+    });
+  }
+
+  void removeFavourite({String? id}) {
+    if (id != null) {
+      state = [...state.where((element) => element != id)];
     }
   }
 }
