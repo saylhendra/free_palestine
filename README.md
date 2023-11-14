@@ -1,4 +1,4 @@
-# free_palesine 🇵🇸
+# free_palestine 🇵🇸
 
 Palestine we stand for your 4ever....
 
